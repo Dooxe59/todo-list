@@ -1,0 +1,19 @@
+.app {
+  height: 100%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .application-name {
+    font-size: larger;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .separator {
+    margin: 20px;
+  }
+}

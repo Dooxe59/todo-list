@@ -1,0 +1,43 @@
+.button {
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  border-width: 1px;
+  border-style: solid;
+
+  &:not([disabled]) {
+    &:hover {
+      filter: brightness(150%);
+      cursor: pointer;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: lightgray;
+    border-color: gray;
+  }
+
+  &.button-default {
+    &:not([disabled]) {
+      background-color: cornflowerblue;
+      border-color: blue;
+    }
+  }
+
+  &.button-green {
+    &:not([disabled]) {
+      background-color: green;
+      border-color: darkgreen;
+    }
+  }
+
+  &.button-red {
+    &:not([disabled]) {
+      background-color: red;
+      border-color: darkmagenta;
+    }
+  }
+}

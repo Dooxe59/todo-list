@@ -1,0 +1,15 @@
+.todo-item {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid burlywood;
+
+  .todo-item-label {
+    flex: 1;
+  }
+
+  .delete-todo-item-button {
+    height: 20px;
+  }
+}
