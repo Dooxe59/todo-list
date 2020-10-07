@@ -4,7 +4,7 @@ import "./app.scss";
 import TodoList from "./TodoList/TodoList";
 
 const App = () => {
-  const [todoListItems, setTodoListItems] = useState(["totooo", "tata"]);
+  const [todoListItems, setTodoListItems] = useState([]);
 
   const addNewTodoItem = (item) => {
     if (item) {
