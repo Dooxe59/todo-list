@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+
 import AddItem from "./AddItem/AddItem";
-import "./app.scss";
 import TodoList from "./TodoList/TodoList";
+
+import "./app.scss";
 
 const App = () => {
   const [todoListItems, setTodoListItems] = useState([]);
