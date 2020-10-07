@@ -5,11 +5,21 @@
   padding: 10px;
   border-bottom: 1px solid burlywood;
 
-  .todo-item-label {
+  .todo-item-value {
+    display: flex;
+    flex-direction: column;
     flex: 1;
-  }
 
-  .delete-todo-item-button {
-    height: 20px;
+    .todo-item-label {
+    }
+
+    .todo-item-date {
+      color: gray;
+      font-size: 12px;
+    }
+
+    .delete-todo-item-button {
+      height: 20px;
+    }
   }
 }

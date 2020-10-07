@@ -8,9 +8,13 @@ import "./app.scss";
 const App = () => {
   const [todoListItems, setTodoListItems] = useState([]);
 
-  const addNewTodoItem = (item) => {
-    if (item) {
-      setTodoListItems((todoListItems) => [...todoListItems, item]);
+  const addNewTodoItem = (itemLabel) => {
+    if (itemLabel) {
+      const newItem = {
+        label: itemLabel,
+        date: Date.now(),
+      };
+      setTodoListItems((todoListItems) => [...todoListItems, newItem]);
     }
   };
 

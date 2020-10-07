@@ -9,7 +9,7 @@ const TodoList = ({ todoListItems, deleteTodoItem }) => {
     return todoListItems.map((item, index) => {
       return (
         <TodoItem
-          key={`${item}-${index}`}
+          key={`${item.label}-${index}`}
           item={item}
           deleteTodoItem={() => deleteTodoItem(index)}
         ></TodoItem>
