@@ -16,3 +16,9 @@
     flex: 1;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .add-item {
+    margin: 0 5%;
+  }
+}
