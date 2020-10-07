@@ -1,0 +1,22 @@
+{
+  "en": {
+    "translation": {
+      "add": "Add",
+      "addNewTodoItem": "Add new todo item",
+      "addedTodoItemDate": "Added the {{date}}",
+      "appTitle": "My todo task",
+      "changeLanguage": "Set language to french",
+      "delete": "Delete"
+    }
+  },
+  "fr": {
+    "translation": {
+      "add": "Ajouter",
+      "addNewTodoItem": "Ajouter un nouvel élément",
+      "addedTodoItemDate": "Ajouté le {{date}}",
+      "appTitle": "Ma liste de tâches",
+      "changeLanguage": "Passer en anglais",
+      "delete": "Supprimer"
+    }
+  }
+}
