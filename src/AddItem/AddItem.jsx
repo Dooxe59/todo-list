@@ -44,7 +44,7 @@ const AddItem = ({ addNewTodoItem }) => {
         value={newTodoItemValue}
         onChange={handleInputTextChange}
         onKeyDown={handleKeyDown}
-        autocomplete="off"
+        autoComplete="off"
       />
       <div className="add-item-button">
         <Button
