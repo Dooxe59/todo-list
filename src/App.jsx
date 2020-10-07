@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="application-name">My React TodoList</div>
+      <div className="application-name">My TodoList</div>
       <AddItem addNewTodoItem={addNewTodoItem}></AddItem>
       <hr className="separator" />
       <TodoList
