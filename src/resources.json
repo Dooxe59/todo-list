@@ -1,6 +1,10 @@
 {
   "en": {
     "translation": {
+      "ABORTED": "Aborted",
+      "FINISHED": "Finished",
+      "NEW": "New",
+      "ONGOING": "On going",
       "add": "Add",
       "addNewTodoItem": "Add new todo item",
       "addedTodoItemDate": "Added {{date}}",
@@ -11,6 +15,10 @@
   },
   "fr": {
     "translation": {
+      "ABORTED": "Abandonnée",
+      "FINISHED": "Terminée",
+      "NEW": "Nouveau",
+      "ONGOING": "En cours",
       "add": "Ajouter",
       "addNewTodoItem": "Ajouter un nouvel élément",
       "addedTodoItemDate": "Ajoutée {{date}}",

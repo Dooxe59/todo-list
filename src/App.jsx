@@ -7,12 +7,16 @@ import Button from "./Button/Button";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 
+import { FINISHED, NEW } from "./consts.js";
+
 import "./app.scss";
 
 const defaultTodoItem = {
   label: "Default task",
   timestamp: 1602148900000,
+  status: FINISHED,
 };
+
 const App = () => {
   const [todoListItems, setTodoListItems] = useState([defaultTodoItem]);
   const { t, i18n } = useTranslation();
@@ -22,6 +26,7 @@ const App = () => {
       const newItem = {
         label: itemLabel,
         timestamp: Date.now(),
+        status: NEW,
       };
       setTodoListItems((todoListItems) => [...todoListItems, newItem]);
     }

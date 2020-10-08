@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import "./addItem.scss";
 
 const AddItem = ({ addNewTodoItem }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [newTodoItemValue, setNewTodoItemValue] = useState("");
   const inputRef = useRef(null);
 
