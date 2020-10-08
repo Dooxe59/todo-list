@@ -1,9 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import Button from "../../Button/Button";
+
+import moment from "moment";
+
+import { useTranslation } from "react-i18next";
+
 import "./todoItem.scss";
 
 const TodoItem = ({ item, deleteTodoItem }) => {
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="todo-item">
       <div className="todo-item-value">
@@ -11,11 +19,17 @@ const TodoItem = ({ item, deleteTodoItem }) => {
           {item.label}
         </span>
         <span className="todo-item-date">
-          Add the {item.timestamp} (timestamp)
+          {t("addedTodoItemDate", {
+            date: moment(item.timestamp).fromNow(),
+          })}
         </span>
       </div>
       <div className="delete-todo-item-button">
-        <Button onClick={deleteTodoItem} label="Delete" theme="red"></Button>
+        <Button
+          onClick={deleteTodoItem}
+          label={t("delete")}
+          theme="red"
+        ></Button>
       </div>
     </div>
   );

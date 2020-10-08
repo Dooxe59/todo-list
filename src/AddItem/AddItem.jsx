@@ -1,10 +1,14 @@
 import React, { useState, useRef } from "react";
-import "./addItem.scss";
 import PropTypes from "prop-types";
 
 import Button from "../Button/Button";
 
+import { useTranslation } from "react-i18next";
+
+import "./addItem.scss";
+
 const AddItem = ({ addNewTodoItem }) => {
+  const { t, i18n } = useTranslation();
   const [newTodoItemValue, setNewTodoItemValue] = useState("");
   const inputRef = useRef(null);
 
@@ -45,7 +49,7 @@ const AddItem = ({ addNewTodoItem }) => {
         className="add-item-input"
         name="newTodoItemValue"
         type="text"
-        placeholder="Add new todo item"
+        placeholder={t("addNewTodoItem")}
         autoFocus
         ref={inputRef}
         value={newTodoItemValue}
@@ -57,7 +61,7 @@ const AddItem = ({ addNewTodoItem }) => {
         <Button
           isDisabled={!isValidNewItem()}
           onClick={validateAndAddNewTodoItem}
-          label="Add"
+          label={t("add")}
           theme="green"
         ></Button>
       </div>
