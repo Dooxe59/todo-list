@@ -19,9 +19,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool,
-  theme: PropTypes.string,
+  theme: PropTypes.oneOf(["default", "green", "red"]),
 };
-
-// TODO: validator for theme
 
 export default Button;

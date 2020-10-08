@@ -20,10 +20,11 @@ const TodoItem = ({ item, deleteTodoItem }) => {
 };
 
 TodoItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
+  }),
   deleteTodoItem: PropTypes.func.isRequired,
 };
-
-// TODO: validator object item
 
 export default TodoItem;
