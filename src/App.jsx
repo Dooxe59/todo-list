@@ -4,6 +4,8 @@ import AddItem from "./AddItem/AddItem";
 import TodoList from "./TodoList/TodoList";
 import Button from "./Button/Button";
 
+import moment from "moment";
+
 import "./app.scss";
 
 import { useTranslation } from "react-i18next";
@@ -17,7 +19,7 @@ const App = () => {
     if (itemLabel) {
       const newItem = {
         label: itemLabel,
-        date: Date.now(),
+        date: moment().format(),
       };
       setTodoListItems((todoListItems) => [...todoListItems, newItem]);
     }
@@ -32,6 +34,7 @@ const App = () => {
   const changeLanguage = () => {
     const lang = i18n?.language === "en" ? "fr" : "en";
     i18n.changeLanguage(lang);
+    moment.locale(lang);
   };
 
   return (

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import Button from "../../Button/Button";
 
+import moment from "moment";
+
 import { useTranslation } from "react-i18next";
 
 import "./todoItem.scss";
@@ -18,7 +20,9 @@ const TodoItem = ({ item, deleteTodoItem }) => {
         </span>
         <span className="todo-item-date">
           {/* TODO: Date bon format */}
-          {t("addedTodoItemDate", { date: item.date })}
+          {t("addedTodoItemDate", {
+            date: moment(item.date).fromNow(),
+          })}
         </span>
       </div>
       <div className="delete-todo-item-button">

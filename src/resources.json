@@ -3,7 +3,7 @@
     "translation": {
       "add": "Add",
       "addNewTodoItem": "Add new todo item",
-      "addedTodoItemDate": "Added the {{date}}",
+      "addedTodoItemDate": "Added {{date}}",
       "appTitle": "My todo task",
       "changeLanguage": "Set language to french",
       "delete": "Delete"
@@ -13,7 +13,7 @@
     "translation": {
       "add": "Ajouter",
       "addNewTodoItem": "Ajouter un nouvel élément",
-      "addedTodoItemDate": "Ajouté le {{date}}",
+      "addedTodoItemDate": "Ajoutée {{date}}",
       "appTitle": "Ma liste de tâches",
       "changeLanguage": "Passer en anglais",
       "delete": "Supprimer"
