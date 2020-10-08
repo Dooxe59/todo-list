@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./addItem.scss";
 import PropTypes from "prop-types";
 
@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 
 const AddItem = ({ addNewTodoItem }) => {
   const [newTodoItemValue, setNewTodoItemValue] = useState("");
+  const inputRef = useRef(null);
 
   const handleInputTextChange = (event) => {
     setNewTodoItemValue(event.target.value);
@@ -13,6 +14,10 @@ const AddItem = ({ addNewTodoItem }) => {
 
   const isValidNewItem = () => {
     return newTodoItemValue?.trim()?.length > 0;
+  };
+
+  const setFocusOnInput = () => {
+    inputRef.current.focus();
   };
 
   const handleKeyDown = (event) => {
@@ -26,6 +31,7 @@ const AddItem = ({ addNewTodoItem }) => {
     if (isValidNewItem()) {
       addNewTodoItem(newTodoItemValue.trim());
       clearInputText();
+      setFocusOnInput();
     }
   };
 
@@ -41,6 +47,7 @@ const AddItem = ({ addNewTodoItem }) => {
         type="text"
         placeholder="Add new todo item"
         autoFocus
+        ref={inputRef}
         value={newTodoItemValue}
         onChange={handleInputTextChange}
         onKeyDown={handleKeyDown}

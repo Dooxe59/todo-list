@@ -10,7 +10,9 @@ const TodoItem = ({ item, deleteTodoItem }) => {
         <span className="todo-item-label truncated" title={item.label}>
           {item.label}
         </span>
-        <span className="todo-item-date">Add the {item.date} (timestamp)</span>
+        <span className="todo-item-date">
+          Add the {item.timestamp} (timestamp)
+        </span>
       </div>
       <div className="delete-todo-item-button">
         <Button onClick={deleteTodoItem} label="Delete" theme="red"></Button>
@@ -22,7 +24,7 @@ const TodoItem = ({ item, deleteTodoItem }) => {
 TodoItem.propTypes = {
   item: PropTypes.shape({
     label: PropTypes.string.isRequired,
-    date: PropTypes.number.isRequired,
+    timestamp: PropTypes.number.isRequired,
   }),
   deleteTodoItem: PropTypes.func.isRequired,
 };

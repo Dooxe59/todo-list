@@ -5,14 +5,18 @@ import TodoList from "./TodoList/TodoList";
 
 import "./app.scss";
 
+const defaultTodoItem = {
+  label: "Default task",
+  timestamp: 1602148900000,
+};
 const App = () => {
-  const [todoListItems, setTodoListItems] = useState([]);
+  const [todoListItems, setTodoListItems] = useState([defaultTodoItem]);
 
   const addNewTodoItem = (itemLabel) => {
     if (itemLabel) {
       const newItem = {
         label: itemLabel,
-        date: Date.now(),
+        timestamp: Date.now(),
       };
       setTodoListItems((todoListItems) => [...todoListItems, newItem]);
     }
