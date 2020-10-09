@@ -22,6 +22,7 @@ describe("Todo list app", () => {
     cy.get(".add-todo-item-input")
       .type(inputValue);
     cy.get(".button-green")
+      .first()
       .click();
     cy.focused()
       .should("have.class", "add-todo-item-input");
@@ -34,12 +35,12 @@ describe("Todo list app", () => {
     cy.get(".button-green")
       .should("be.disabled");
     cy.get(".todo-item")
-      .should("have.length", 1);
+      .should("have.length", 3);
   });
 
   it("Display list of todo", () => {
     cy.get(".todo-item")
-      .should("have.length", 1);
+      .should("have.length", 3);
   });
 
   it("Type text into input", () => {
@@ -54,9 +55,10 @@ describe("Todo list app", () => {
     cy.get(".add-todo-item-input")
       .type(inputValue);
     cy.get(".button-green")
+      .first()
       .click();
     cy.get(".todo-item")
-      .should("have.length", 2);
+      .should("have.length", 4);
   });
 
   it("Add new todo (enter pressed)", () => {
@@ -65,7 +67,7 @@ describe("Todo list app", () => {
       .type(inputValue)
       .type("{enter}");
     cy.get(".todo-item")
-      .should("have.length", 2);
+      .should("have.length", 4);
   });
 
   it("Abort new first todo", () => {
@@ -74,13 +76,13 @@ describe("Todo list app", () => {
       .type(inputValue)
       .type("{enter}");
     cy.get(".aborted-todo-item")
-      .should("have.length", 0);
+      .should("have.length", 1);
     cy.get(".new-todo-item")
       .first()
       .find(".button-red")
       .click();
     cy.get(".aborted-todo-item")
-      .should("have.length", 1);
+      .should("have.length", 2);
   });
 
   it("Finish new first todo", () => {
@@ -109,14 +111,14 @@ describe("Todo list app", () => {
     cy.get(".new-filter-element")
       .click();
     cy.get(".todo-item")
-      .should("have.length", 0);
+      .should("have.length", 1);
   });
 
   it("Display default aborted todo list", () => {
     cy.get(".aborted-filter-element")
       .click();
     cy.get(".todo-item")
-      .should("have.length", 0);
+      .should("have.length", 1);
   });
 
   it("Display aborted todo list after add element", () => {
@@ -131,7 +133,7 @@ describe("Todo list app", () => {
     cy.get(".aborted-filter-element")
       .click();
     cy.get(".todo-item")
-      .should("have.length", 1);
+      .should("have.length", 2);
   });
 
   it("Display new todo list after add element", () => {
@@ -142,7 +144,7 @@ describe("Todo list app", () => {
     cy.get(".new-filter-element")
       .click();
     cy.get(".todo-item")
-      .should("have.length", 1);
+      .should("have.length", 2);
   });
 
   it("Display finished todo list after add element", () => {

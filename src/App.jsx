@@ -5,7 +5,7 @@ import AddItem from "./AddTodoItem/AddTodoItem";
 import TodoList from "./TodoList/TodoList";
 import Button from "./Button/Button";
 import { createGuid } from "./utils.js";
-import { FINISHED, NEW } from "./consts.js";
+import { ABORTED, FINISHED, NEW } from "./consts.js";
 
 import "./app.scss";
 
@@ -36,14 +36,24 @@ const App = () => {
     }
   };
 
-  const defaultTodoItem = {
-    label: "Default task",
+  const defaultTodoItems = [{
+    label: "Default finished task",
     timestamp: 1602148900000,
     status: FINISHED,
     id: createGuid(),
-  };
+  },{
+    label: "Default new task",
+    timestamp: 1602147000000,
+    status: NEW,
+    id: createGuid(),
+  },{
+    label: "Default aborted task",
+    timestamp: 1602145700000,
+    status: ABORTED,
+    id: createGuid(),
+  }];
 
-  const [todoListItems, dispatch] = useReducer(reducer, [defaultTodoItem])
+  const [todoListItems, dispatch] = useReducer(reducer, defaultTodoItems)
   const { t, i18n } = useTranslation();
 
   const changeLanguage = () => {
