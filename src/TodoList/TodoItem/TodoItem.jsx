@@ -49,8 +49,13 @@ const TodoItem = ({ item, abortTodoItem, finishTodoItem }) => {
     )
   };
 
+  const todoItemClass = () => {
+    const status = item.status.toLowerCase();
+    return `${status}-todo-item`;
+  }
+
   return (
-    <div className="todo-item">
+    <div className={`todo-item ${todoItemClass()}`}>
       <div className="todo-item-status">
         <Tag label={t(item.status)} theme={getItemStatusTag()}></Tag>
       </div>

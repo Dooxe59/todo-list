@@ -21,12 +21,17 @@ const FilterBar = ({ currentFilter, updateFilter }) => {
     return currentFilter === filter ? 'active-filter' : '';
   };
 
+  const filterItemClass = (filterName) => {
+    const filter = filterName.toLowerCase();
+    return `${filter}-filter-element`;
+  }
+
   const renderFilterList = () => {
     return filterList.map((filterName, index) => {
       return (
         <span 
           key={index} 
-          className={`filter-element ${isActiveFilterClass(filterName)}`} 
+          className={`filter-element ${isActiveFilterClass(filterName)} ${filterItemClass(filterName)}`} 
           onClick={() => handleChangeFilter(filterName)}>
           {t(filterName)}
         </span>);
