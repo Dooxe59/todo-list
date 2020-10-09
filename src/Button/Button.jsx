@@ -7,8 +7,8 @@ const Button = ({ label, onClick, isDisabled = false, theme = "default" }) => {
   return (
     <button
       className={`button button-${theme}`}
-      onClick={onClick}
       disabled={isDisabled}
+      onClick={onClick}
     >
       {label}
     </button>

@@ -1,0 +1,173 @@
+.add-todo-item {
+  display: flex;
+  justify-content: center;
+  margin: 0 20%;
+
+  .add-todo-item-input-label {
+    margin: 0 10px;
+    height: 30px;
+    flex: 3;
+
+    .add-todo-item-input {
+      text-indent: 10px;
+      border-radius: 4px;
+      border-style: solid;
+    }
+  }
+
+  .add-todo-item-button {
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .add-todo-item {
+    margin: 0 5%;
+  }
+}
+
+// TODO: clean input css
+
+.add-todo-item-input-label {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding-top: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+.add-todo-item-input-label > input {
+  box-sizing: border-box;
+  margin: 0;
+  border: solid 1px; /* Safari */
+  border-color: rgba(0, 0, 0, 0.6);
+  border-top-color: transparent;
+  border-radius: 4px;
+  padding: 15px 13px 15px;
+  width: 100%;
+  height: inherit;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: transparent;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+/* Span */
+.add-todo-item-input-label > input + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  border-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-height: 100%;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 75%;
+  line-height: 15px;
+  cursor: text;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+/* Corners */
+.add-todo-item-input-label > input + span::before,
+.add-todo-item-input-label > input + span::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  margin-top: 6px;
+  border-top: solid 1px;
+  border-top-color: rgba(0, 0, 0, 0.6);
+  min-width: 10px;
+  height: 8px;
+  pointer-events: none;
+  box-shadow: inset 0 1px transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.add-todo-item-input-label > input + span::before {
+  margin-right: 4px;
+  border-left: solid 1px transparent;
+  border-radius: 4px 0;
+}
+.add-todo-item-input-label > input + span::after {
+  flex-grow: 1;
+  margin-left: 4px;
+  border-right: solid 1px transparent;
+  border-radius: 0 4px;
+}
+/* Hover */
+.add-todo-item-input-label:hover > input {
+  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  border-top-color: transparent;
+}
+.add-todo-item-input-label:hover > input + span::before,
+.add-todo-item-input-label:hover > input + span::after {
+  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+}
+.add-todo-item-input-label:hover > input:not(:focus):placeholder-shown {
+  border-color: rgba(0, 0, 0, 0.87);
+}
+/* Placeholder-shown */
+.add-todo-item-input-label > input:not(:focus):placeholder-shown {
+  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+}
+.add-todo-item-input-label > input:not(:focus):placeholder-shown + span {
+  font-size: inherit;
+  line-height: 45px;
+}
+.add-todo-item-input-label
+  > input:not(:focus):placeholder-shown
+  + span::before
+  .add-todo-item-input-label
+  > input:not(:focus):placeholder-shown
+  + span::after {
+  border-top-color: transparent;
+}
+/* Focus */
+.add-todo-item-input-label > input:focus {
+  border-color: cornflowerblue;
+  border-top-color: transparent;
+  outline: none;
+}
+.add-todo-item-input-label > input:focus + span {
+  color: cornflowerblue;
+}
+.add-todo-item-input-label > input:focus + span::before,
+.add-todo-item-input-label > input:focus + span::after {
+  border-top-color: cornflowerblue !important;
+}
+.add-todo-item-input-label > input:disabled,
+.add-todo-item-input-label > input:disabled + span {
+  border-color: rgba(0, 0, 0, 0.38) !important;
+  border-top-color: transparent !important;
+  color: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+}
+.add-todo-item-input-label > input:disabled + span::before,
+.add-todo-item-input-label > input:disabled + span::after {
+  border-top-color: rgba(0, 0, 0, 0.38) !important;
+}
+.add-todo-item-input-label > input:disabled:placeholder-shown,
+.add-todo-item-input-label > input:disabled:placeholder-shown + span {
+  border-top-color: rgba(0, 0, 0, 0.38) !important;
+}
+.add-todo-item-input-label > input:disabled:placeholder-shown + span::before,
+.add-todo-item-input-label > input:disabled:placeholder-shown + span::after {
+  border-top-color: transparent !important;
+}
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .add-todo-item-input-label > input,
+    .add-todo-item-input-label
+      > input
+      + span
+      .add-todo-item-input-label
+      > input
+      + span::before,
+    .add-todo-item-input-label > input + span::after {
+      transition-duration: 0.1s;
+    }
+  }
+}

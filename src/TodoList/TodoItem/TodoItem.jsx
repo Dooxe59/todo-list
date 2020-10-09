@@ -1,15 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-
-import Button from "../../Button/Button";
-
 import moment from "moment";
+import Button from "../../Button/Button";
+import Tag from "../../Tag/Tag";
 import { ABORTED, FINISHED, NEW } from "../../consts.js";
 
-import { useTranslation } from "react-i18next";
-
 import "./todoItem.scss";
-import Tag from "../../Tag/Tag";
 
 const TodoItem = ({ item, updateTodoItemStatus }) => {
   const { t } = useTranslation();
@@ -31,16 +28,16 @@ const TodoItem = ({ item, updateTodoItemStatus }) => {
       <>
       <div className="finish-todo-item-button">
         <Button
-          onClick={() => updateTodoItemStatus(FINISHED)}
-          label={t("finish")}
           theme="green"
+          label={t("finish")}
+          onClick={() => updateTodoItemStatus(FINISHED)}
         ></Button>
       </div>
       <div className="abort-todo-item-button">
         <Button
-          onClick={() => updateTodoItemStatus(ABORTED)}
-          label={t("abort")}
           theme="red"
+          label={t("abort")}
+          onClick={() => updateTodoItemStatus(ABORTED)}
         ></Button>
       </div>
       </>

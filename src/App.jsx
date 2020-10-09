@@ -1,24 +1,15 @@
 import React, { useState } from "react";
-
-import AddItem from "./AddItem/AddItem";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
+import AddItem from "./AddTodoItem/AddTodoItem";
 import TodoList from "./TodoList/TodoList";
 import Button from "./Button/Button";
-
-import moment from "moment";
-import { useTranslation } from "react-i18next";
-
+import { createGuid } from "./utils.js";
 import { FINISHED, NEW } from "./consts.js";
 
 import "./app.scss";
 
 const App = () => {
-  const createGuid = () => {  
-    function s4() {  
-       return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);  
-    }  
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();  
- }
-
   const defaultTodoItem = {
     label: "Default task",
     timestamp: 1602148900000,
@@ -48,7 +39,6 @@ const App = () => {
       todoListItemsTemp[itemIndex].status = newStatus;
       setTodoListItems(todoListItemsTemp);
     }
-    
   };
 
   const changeLanguage = () => {

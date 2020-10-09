@@ -1,11 +1,9 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-
+import { useTranslation } from "react-i18next";
 import Button from "../Button/Button";
 
-import { useTranslation } from "react-i18next";
-
-import "./addItem.scss";
+import "./addTodoItem.scss";
 
 const AddItem = ({ addNewTodoItem }) => {
   const { t } = useTranslation();
@@ -44,25 +42,30 @@ const AddItem = ({ addNewTodoItem }) => {
   };
 
   return (
-    <div className="add-item">
-      <input
-        className="add-item-input"
-        name="newTodoItemValue"
-        type="text"
-        placeholder={t("addNewTodoItem")}
-        autoFocus
-        ref={inputRef}
-        value={newTodoItemValue}
-        onChange={handleInputTextChange}
-        onKeyDown={handleKeyDown}
-        autoComplete="off"
-      />
-      <div className="add-item-button">
+    <div className="add-todo-item">
+      <label className="add-todo-item-input-label">
+        <input
+          autoFocus
+          className="add-todo-item-input"
+          name="newTodoItemValue"
+          type="text"
+          autoComplete="off"
+          placeholder=" "
+          ref={inputRef}
+          value={newTodoItemValue}
+          onChange={handleInputTextChange}
+          onKeyDown={handleKeyDown}
+        />
+        <span>
+        {t("addNewTodoItem")}
+        </span>
+      </label>
+      <div className="add-todo-item-button">
         <Button
+          theme="green"
+          label={t("add")}
           isDisabled={!isValidNewItem()}
           onClick={validateAndAddNewTodoItem}
-          label={t("add")}
-          theme="green"
         ></Button>
       </div>
     </div>

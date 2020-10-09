@@ -5,31 +5,31 @@ describe("Todo list app", () => {
 
   it("Focus input by default", () => {
     cy.focused()
-      .should("have.class", "add-item-input");
+      .should("have.class", "add-todo-item-input");
   });
 
   it("Focus input after added todo (enter pressed)", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
     cy.focused()
-      .should("have.class", "add-item-input");
+      .should("have.class", "add-todo-item-input");
   });
 
   it("Focus input after added todo (click add button)", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue);
     cy.get(".button-green")
       .click();
     cy.focused()
-      .should("have.class", "add-item-input");
+      .should("have.class", "add-todo-item-input");
   });
 
   it("Prevent add empty todo (click add button)", () => {
     const inputValue = "   ";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue);
     cy.get(".button-green")
       .should("be.disabled");
@@ -44,14 +44,14 @@ describe("Todo list app", () => {
 
   it("Type text into input", () => {
     const inputValue = "Task typed by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .should("have.value", inputValue);
   });
 
   it("Add new todo (click add button)", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue);
     cy.get(".button-green")
       .click();
@@ -61,7 +61,7 @@ describe("Todo list app", () => {
 
   it("Add new todo (enter pressed)", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
     cy.get(".todo-item")
@@ -70,7 +70,7 @@ describe("Todo list app", () => {
 
   it("Abort new first todo", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
     cy.get(".aborted-todo-item")
@@ -85,7 +85,7 @@ describe("Todo list app", () => {
 
   it("Finish new first todo", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
     cy.get(".finished-todo-item")
@@ -121,7 +121,7 @@ describe("Todo list app", () => {
 
   it("Display aborted todo list after add element", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
     cy.get(".new-todo-item")
@@ -136,7 +136,7 @@ describe("Todo list app", () => {
 
   it("Display new todo list after add element", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
     cy.get(".new-filter-element")
@@ -147,7 +147,7 @@ describe("Todo list app", () => {
 
   it("Display finished todo list after add element", () => {
     const inputValue = "Task added by Cypress :)";
-    cy.get(".add-item-input")
+    cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
     cy.get(".new-todo-item")
