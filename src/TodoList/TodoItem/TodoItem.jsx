@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 import Button from "../../Button/Button";
 
 import moment from "moment";
-import { ABORTED, FINISHED, NEW, ONGOING } from "../../consts.js";
+import { ABORTED, FINISHED, NEW } from "../../consts.js";
 
 import { useTranslation } from "react-i18next";
 
 import "./todoItem.scss";
 import Tag from "../../Tag/Tag";
 
-const TodoItem = ({ item, deleteTodoItem }) => {
+const TodoItem = ({ item, abortTodoItem, finishTodoItem }) => {
   const { t } = useTranslation();
 
   const getItemStatusTag = () => {
@@ -20,11 +20,33 @@ const TodoItem = ({ item, deleteTodoItem }) => {
         return "pink";
       case FINISHED:
         return "green";
-      case ONGOING:
-        return "orange";
       default:
         return "default";
     }
+  };
+
+  const renderTodoButton = () => {
+    if(item.status !== NEW) return;
+    return (
+      <>
+      <div className="finish-todo-item-button">
+        <Button
+          onClick={finishTodoItem}
+          label={t("finish")}
+          theme="green"
+        >
+        </Button>
+      </div>
+      <div className="abort-todo-item-button">
+        <Button
+          onClick={abortTodoItem}
+          label={t("abort")}
+          theme="red"
+        >
+        </Button>
+      </div>
+      </>
+    )
   };
 
   return (
@@ -42,13 +64,7 @@ const TodoItem = ({ item, deleteTodoItem }) => {
           })}
         </span>
       </div>
-      <div className="delete-todo-item-button">
-        <Button
-          onClick={deleteTodoItem}
-          label={t("delete")}
-          theme="red"
-        ></Button>
-      </div>
+      {renderTodoButton()}
     </div>
   );
 };
@@ -57,9 +73,10 @@ TodoItem.propTypes = {
   item: PropTypes.shape({
     label: PropTypes.string.isRequired,
     timestamp: PropTypes.number.isRequired,
-    status: PropTypes.oneOf([ABORTED, FINISHED, NEW, ONGOING]),
+    status: PropTypes.oneOf([ABORTED, FINISHED, NEW]),
   }),
-  deleteTodoItem: PropTypes.func.isRequired,
+  abortTodoItem: PropTypes.func.isRequired,
+  finishTodoItem: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

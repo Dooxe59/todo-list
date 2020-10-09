@@ -28,7 +28,12 @@
     margin-right: 5px;
   }
 
-  .delete-todo-item-button {
+  .finish-todo-item-button {
+    margin: 0 10px;
+  }
+
+  .finish-todo-item-button,
+  .abort-todo-item-button {
     height: 20px;
   }
 }

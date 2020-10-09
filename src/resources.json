@@ -2,29 +2,31 @@
   "en": {
     "translation": {
       "ABORTED": "Aborted",
+      "ALL": "All tasks",
       "FINISHED": "Finished",
       "NEW": "New",
-      "ONGOING": "On going",
+      "abort": "Abort",
       "add": "Add",
       "addNewTodoItem": "Add new todo item",
       "addedTodoItemDate": "Added {{date}}",
       "appTitle": "My todo task",
       "changeLanguage": "Set language to french",
-      "delete": "Delete"
+      "finish": "Finish"
     }
   },
   "fr": {
     "translation": {
       "ABORTED": "Abandonnée",
+      "ALL": "Toutes les tâches",
       "FINISHED": "Terminée",
-      "NEW": "Nouveau",
-      "ONGOING": "En cours",
+      "NEW": "Nouvelle",
+      "abort": "Abandonner",
       "add": "Ajouter",
       "addNewTodoItem": "Ajouter un nouvel élément",
       "addedTodoItemDate": "Ajoutée {{date}}",
       "appTitle": "Ma liste de tâches",
       "changeLanguage": "Passer en anglais",
-      "delete": "Supprimer"
+      "finish": "Terminer"
     }
   }
 }

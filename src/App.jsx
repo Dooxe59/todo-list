@@ -7,7 +7,7 @@ import Button from "./Button/Button";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 
-import { FINISHED, NEW } from "./consts.js";
+import { ABORTED, FINISHED, NEW } from "./consts.js";
 
 import "./app.scss";
 
@@ -32,9 +32,16 @@ const App = () => {
     }
   };
 
-  const deleteTodoItem = (itemIndex) => {
+  // TODO/ refactor methods to change state
+  const abortTodoItem = (itemIndex) => {
     const todoListItemsTemp = [...todoListItems];
-    todoListItemsTemp.splice(itemIndex, 1);
+    todoListItemsTemp[itemIndex].status = ABORTED;
+    setTodoListItems(todoListItemsTemp);
+  };
+
+  const finishTodoItem = (itemIndex) => {
+    const todoListItemsTemp = [...todoListItems];
+    todoListItemsTemp[itemIndex].status = FINISHED;
     setTodoListItems(todoListItemsTemp);
   };
 
@@ -51,7 +58,8 @@ const App = () => {
       <hr className="separator" />
       <TodoList
         todoListItems={todoListItems}
-        deleteTodoItem={deleteTodoItem}
+        abortTodoItem={abortTodoItem}
+        finishTodoItem={finishTodoItem}
       ></TodoList>
       <footer>
         <Button onClick={changeLanguage} label={t("changeLanguage")}></Button>
