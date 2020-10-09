@@ -7,7 +7,7 @@ import { ALL } from "../consts.js";
 
 import "./todoList.scss";
 
-const TodoList = ({ todoListItems, abortTodoItem, finishTodoItem }) => {
+const TodoList = ({ todoListItems, updateTodoItemStatus }) => {
   const [filter, setFilter] = useState(ALL);
 
   const updateCurrentFilter = (filterName) => {
@@ -24,10 +24,9 @@ const TodoList = ({ todoListItems, abortTodoItem, finishTodoItem }) => {
     return filteredTodoListItems().map((item, index) => {
       return (
         <TodoItem
-          key={`${item.label}-${index}`}
+          key={item.id}
           item={item}
-          abortTodoItem={() => abortTodoItem(index)}
-          finishTodoItem={() => finishTodoItem(index)}
+          updateTodoItemStatus={(newStatus) => updateTodoItemStatus(item.id, newStatus)}
         ></TodoItem>
       );
     });
@@ -43,8 +42,7 @@ const TodoList = ({ todoListItems, abortTodoItem, finishTodoItem }) => {
 
 TodoList.propTypes = {
   todoListItems: PropTypes.array.isRequired,
-  abortTodoItem: PropTypes.func.isRequired,
-  finishTodoItem: PropTypes.func.isRequired,
+  updateTodoItemStatus: PropTypes.func.isRequired,
 };
 
 export default TodoList;

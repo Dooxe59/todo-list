@@ -7,17 +7,25 @@ import Button from "./Button/Button";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 
-import { ABORTED, FINISHED, NEW } from "./consts.js";
+import { FINISHED, NEW } from "./consts.js";
 
 import "./app.scss";
 
-const defaultTodoItem = {
-  label: "Default task",
-  timestamp: 1602148900000,
-  status: FINISHED,
-};
-
 const App = () => {
+  const createGuid = () => {  
+    function s4() {  
+       return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);  
+    }  
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();  
+ }
+
+  const defaultTodoItem = {
+    label: "Default task",
+    timestamp: 1602148900000,
+    status: FINISHED,
+    id: createGuid(),
+  };
+
   const [todoListItems, setTodoListItems] = useState([defaultTodoItem]);
   const { t, i18n } = useTranslation();
 
@@ -27,22 +35,20 @@ const App = () => {
         label: itemLabel,
         timestamp: Date.now(),
         status: NEW,
+        id: createGuid(),
       };
       setTodoListItems((todoListItems) => [...todoListItems, newItem]);
     }
   };
 
-  // TODO/ refactor methods to change state
-  const abortTodoItem = (itemIndex) => {
-    const todoListItemsTemp = [...todoListItems];
-    todoListItemsTemp[itemIndex].status = ABORTED;
-    setTodoListItems(todoListItemsTemp);
-  };
-
-  const finishTodoItem = (itemIndex) => {
-    const todoListItemsTemp = [...todoListItems];
-    todoListItemsTemp[itemIndex].status = FINISHED;
-    setTodoListItems(todoListItemsTemp);
+  const updateTodoItemStatus = (itemId, newStatus) => {
+    const itemIndex = todoListItems.findIndex(item => item.id === itemId);
+    if(itemIndex > -1) {
+      const todoListItemsTemp = [...todoListItems];
+      todoListItemsTemp[itemIndex].status = newStatus;
+      setTodoListItems(todoListItemsTemp);
+    }
+    
   };
 
   const changeLanguage = () => {
@@ -58,8 +64,7 @@ const App = () => {
       <hr className="separator" />
       <TodoList
         todoListItems={todoListItems}
-        abortTodoItem={abortTodoItem}
-        finishTodoItem={finishTodoItem}
+        updateTodoItemStatus={updateTodoItemStatus}
       ></TodoList>
       <footer>
         <Button onClick={changeLanguage} label={t("changeLanguage")}></Button>

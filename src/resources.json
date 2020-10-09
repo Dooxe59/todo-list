@@ -2,7 +2,7 @@
   "en": {
     "translation": {
       "ABORTED": "Aborted",
-      "ALL": "All tasks",
+      "ALL": "All",
       "FINISHED": "Finished",
       "NEW": "New",
       "abort": "Abort",
@@ -16,10 +16,10 @@
   },
   "fr": {
     "translation": {
-      "ABORTED": "Abandonnée",
-      "ALL": "Toutes les tâches",
-      "FINISHED": "Terminée",
-      "NEW": "Nouvelle",
+      "ABORTED": "Abandonnée(s)",
+      "ALL": "Toutes",
+      "FINISHED": "Terminée(s)",
+      "NEW": "Nouvelle(s)",
       "abort": "Abandonner",
       "add": "Ajouter",
       "addNewTodoItem": "Ajouter un nouvel élément",

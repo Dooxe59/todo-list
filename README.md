@@ -5,9 +5,8 @@
 - React Router
 - useEffect
 - TU
-- Add filters (by date, status)
+- Add filters (by date)
 - Add category
 - e2e test not by class + split
-
-- **WIP:**
-- Responsive filter by status
+- Pluralization labels
+- Git: before deploy, lauche e2e tests

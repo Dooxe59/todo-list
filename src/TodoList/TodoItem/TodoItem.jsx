@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import "./todoItem.scss";
 import Tag from "../../Tag/Tag";
 
-const TodoItem = ({ item, abortTodoItem, finishTodoItem }) => {
+const TodoItem = ({ item, updateTodoItemStatus }) => {
   const { t } = useTranslation();
 
   const getItemStatusTag = () => {
@@ -31,19 +31,17 @@ const TodoItem = ({ item, abortTodoItem, finishTodoItem }) => {
       <>
       <div className="finish-todo-item-button">
         <Button
-          onClick={finishTodoItem}
+          onClick={() => updateTodoItemStatus(FINISHED)}
           label={t("finish")}
           theme="green"
-        >
-        </Button>
+        ></Button>
       </div>
       <div className="abort-todo-item-button">
         <Button
-          onClick={abortTodoItem}
+          onClick={() => updateTodoItemStatus(ABORTED)}
           label={t("abort")}
           theme="red"
-        >
-        </Button>
+        ></Button>
       </div>
       </>
     )
@@ -52,6 +50,12 @@ const TodoItem = ({ item, abortTodoItem, finishTodoItem }) => {
   const todoItemClass = () => {
     const status = item.status.toLowerCase();
     return `${status}-todo-item`;
+  }
+
+  const todoItemDate = () => {
+    return t("addedTodoItemDate", {
+      date: moment(item.timestamp).fromNow(),
+    });
   }
 
   return (
@@ -63,10 +67,8 @@ const TodoItem = ({ item, abortTodoItem, finishTodoItem }) => {
         <span className="todo-item-label truncated" title={item.label}>
           {item.label}
         </span>
-        <span className="todo-item-date">
-          {t("addedTodoItemDate", {
-            date: moment(item.timestamp).fromNow(),
-          })}
+        <span className="todo-item-date truncated" title={todoItemDate()}>
+          {todoItemDate()}
         </span>
       </div>
       {renderTodoButton()}
@@ -80,8 +82,7 @@ TodoItem.propTypes = {
     timestamp: PropTypes.number.isRequired,
     status: PropTypes.oneOf([ABORTED, FINISHED, NEW]),
   }),
-  abortTodoItem: PropTypes.func.isRequired,
-  finishTodoItem: PropTypes.func.isRequired,
+  updateTodoItemStatus: PropTypes.func.isRequired,
 };
 
 export default TodoItem;
