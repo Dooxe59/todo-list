@@ -1,6 +1,5 @@
 ## Todo list:
 
-- useReducer
 - Redux
 - React Router
 - useEffect

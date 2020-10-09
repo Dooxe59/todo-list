@@ -11,7 +11,8 @@
       "addedTodoItemDate": "Added {{date}}",
       "appTitle": "My todo task",
       "changeLanguage": "Set language to french",
-      "finish": "Finish"
+      "finish": "Finish",
+      "emptyList": "Empty list"
     }
   },
   "fr": {
@@ -26,7 +27,8 @@
       "addedTodoItemDate": "Ajoutée {{date}}",
       "appTitle": "Ma liste de tâches",
       "changeLanguage": "Passer en anglais",
-      "finish": "Terminer"
+      "finish": "Terminer",
+      "emptyList": "La liste est vide"
     }
   }
 }

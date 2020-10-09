@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem/TodoItem";
 import FilterBar from "../FilterBar/FilterBar";
+import { useTranslation } from "react-i18next";
 import { ALL } from "../consts.js";
 
 import "./todoList.scss";
 
 const TodoList = ({ todoListItems, updateTodoItemStatus }) => {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState(ALL);
 
   const updateCurrentFilter = (filterName) => {
@@ -19,10 +21,11 @@ const TodoList = ({ todoListItems, updateTodoItemStatus }) => {
   };
 
   const renderTodoList = () => {
+    if(!filteredTodoListItems().length) return (<div className="empty-list">{t("emptyList")}</div>);
     return filteredTodoListItems().map((item, index) => {
       return (
         <TodoItem
-        item={item}
+          item={item}
           key={item.id}
           updateTodoItemStatus={(newStatus) => updateTodoItemStatus(item.id, newStatus)}
         ></TodoItem>
