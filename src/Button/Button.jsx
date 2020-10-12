@@ -3,23 +3,24 @@ import PropTypes from "prop-types";
 
 import "./button.scss";
 
-const Button = ({ label, onClick, isDisabled = false, theme = "default" }) => {
+const Button = ({ label, onClick, isDisabled = false, theme = "default", className, children }) => {
   return (
     <button
-      className={`button button-${theme}`}
+      className={`button button-${theme} ${className}`}
       disabled={isDisabled}
       onClick={onClick}
     >
-      {label}
+      {label} {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool,
   theme: PropTypes.oneOf(["default", "green", "red"]),
+  className: PropTypes.string,
 };
 
 export default Button;

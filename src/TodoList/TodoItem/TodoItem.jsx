@@ -6,6 +6,8 @@ import Button from "../../Button/Button";
 import Tag from "../../Tag/Tag";
 import { ABORTED, FINISHED, NEW } from "../../consts.js";
 
+import {CheckCircleOutlined, CloseCircleOutlined} from '@ant-design/icons';
+
 import "./todoItem.scss";
 
 const TodoItem = ({ item, updateTodoItemStatus }) => {
@@ -28,17 +30,35 @@ const TodoItem = ({ item, updateTodoItemStatus }) => {
       <>
       <div className="finish-todo-item-button">
         <Button
+          className="button-with-label"
           theme="green"
           label={t("finish")}
           onClick={() => updateTodoItemStatus(FINISHED)}
-        ></Button>
+        >
+        </Button>
+        <Button
+          className="button-with-icon"
+          theme="green"
+          onClick={() => updateTodoItemStatus(FINISHED)}
+        >
+          <CheckCircleOutlined />
+        </Button>
       </div>
       <div className="abort-todo-item-button">
         <Button
+          className="button-with-label"
           theme="red"
           label={t("abort")}
           onClick={() => updateTodoItemStatus(ABORTED)}
-        ></Button>
+        >
+        </Button>
+        <Button
+          className="button-with-icon"
+          theme="red"
+          onClick={() => updateTodoItemStatus(ABORTED)}
+        >
+          <CloseCircleOutlined />
+        </Button>
       </div>
       </>
     )

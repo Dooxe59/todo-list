@@ -36,5 +36,26 @@
   .finish-todo-item-button,
   .abort-todo-item-button {
     height: 20px;
+
+    .button-with-label {
+      display: flex;
+    }
+
+    .button-with-icon {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .finish-todo-item-button,
+    .abort-todo-item-button {
+      .button-with-label {
+        display: none;
+      }
+
+      .button-with-icon {
+        display: flex;
+      }
+    }
   }
 }

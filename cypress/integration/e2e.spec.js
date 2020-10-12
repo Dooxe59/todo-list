@@ -80,6 +80,7 @@ describe("Todo list app", () => {
     cy.get(".new-todo-item")
       .first()
       .find(".button-red")
+      .first()
       .click();
     cy.get(".aborted-todo-item")
       .should("have.length", 2);
@@ -95,6 +96,7 @@ describe("Todo list app", () => {
     cy.get(".new-todo-item")
       .first()
       .find(".button-green")
+      .first()
       .click();
     cy.get(".finished-todo-item")
       .should("have.length", 2);
@@ -135,6 +137,7 @@ describe("Todo list app", () => {
     cy.get(".new-todo-item")
       .first()
       .find(".button-red")
+      .first()
       .click();
     cy.get(".filters-dropdown")
       .click();
@@ -165,12 +168,48 @@ describe("Todo list app", () => {
     cy.get(".new-todo-item")
       .first()
       .find(".button-green")
+      .first()
       .click();
     cy.get(".filters-dropdown")
       .click();
     cy.get(".finished-filter-element")
       .click();
     cy.get(".todo-item")
+      .should("have.length", 2);
+  });
+
+
+  it("Abort new first todo (respnsive)", () => {
+    const inputValue = "Task added by Cypress :)";
+    cy.viewport(550, 750);
+    cy.get(".add-todo-item-input")
+      .type(inputValue)
+      .type("{enter}");
+    cy.get(".aborted-todo-item")
+      .should("have.length", 1);
+    cy.get(".new-todo-item")
+      .first()
+      .find(".button-red")
+      .last()
+      .click();
+    cy.get(".aborted-todo-item")
+      .should("have.length", 2);
+  });
+
+  it("Finish new first todo (responsive)", () => {
+    const inputValue = "Task added by Cypress :)";
+    cy.viewport(550, 750);
+    cy.get(".add-todo-item-input")
+      .type(inputValue)
+      .type("{enter}");
+    cy.get(".finished-todo-item")
+      .should("have.length", 1);
+    cy.get(".new-todo-item")
+      .first()
+      .find(".button-green")
+      .last()
+      .click();
+    cy.get(".finished-todo-item")
       .should("have.length", 2);
   });
 });

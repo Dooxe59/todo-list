@@ -18,10 +18,10 @@
   },
   "fr": {
     "translation": {
-      "ABORTED": "Abandonnée(s)",
+      "ABORTED": "Abandonnée",
       "ALL": "Toutes",
-      "FINISHED": "Terminée(s)",
-      "NEW": "Nouvelle(s)",
+      "FINISHED": "Terminée",
+      "NEW": "Nouvelle",
       "abort": "Abandonner",
       "add": "Ajouter",
       "addNewTodoItem": "Ajouter un nouvel élément",
