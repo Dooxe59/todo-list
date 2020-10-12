@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import Button from "../Button/Button";
+import Button from "../ui/Button/Button";
 
 import "./addTodoItem.scss";
 

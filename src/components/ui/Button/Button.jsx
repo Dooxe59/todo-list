@@ -17,7 +17,7 @@ const Button = ({ label, onClick, isDisabled = false, theme = "default", classNa
 
 Button.propTypes = {
   label: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   isDisabled: PropTypes.bool,
   theme: PropTypes.oneOf(["default", "green", "red"]),
   className: PropTypes.string,

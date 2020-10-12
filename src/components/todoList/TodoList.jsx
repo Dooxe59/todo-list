@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import TodoItem from "./TodoItem/TodoItem";
-import FilterBar from "../FilterBar/FilterBar";
+import TodoItem from "./todoItem/TodoItem";
+import FilterBar from "../filterBar/FilterBar";
 import { useTranslation } from "react-i18next";
-import { ALL } from "../consts.js";
+import { ALL } from "../../consts.js";
 
 import "./todoList.scss";
 

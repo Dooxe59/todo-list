@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import Button from "../Button/Button";
+import Button from "../../components/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 
 import "./administration.scss";
+import { Popconfirm, message } from 'antd';
 
 const Administration = () => {
   const LOCAL_STORAGE_LANG_KEY = "todoListAppCulture";
@@ -33,8 +34,13 @@ const Administration = () => {
     updateLocalStorageLanguage(lang);
   };
 
-  const clearTodos = () => {
-    alert('clear todos');
+  const confirm = (e) => {
+    alert('WIP: TODO: clear todos');
+    message.success(t("allTasksCleared"));
+  }
+  
+  const cancel = (e) => {
+    message.error(t("operationCanceled"));
   }
 
   return (
@@ -50,7 +56,15 @@ const Administration = () => {
       <hr/>
       <div className="action-section">
         <div className="clear-todos-button">
-          <Button onClick={clearTodos} label={t("clearAllTasks")} theme="red"></Button>
+          <Popconfirm
+            title={t("confirmDeleteTasks")}
+            onConfirm={confirm}
+            onCancel={cancel}
+            okText={t("yes")}
+            cancelText={t("no")}
+          >
+            <Button label={t("clearAllTasks")} theme="red"></Button>
+          </Popconfirm>
         </div>
       </div>
     </div>

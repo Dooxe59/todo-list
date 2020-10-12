@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { ALL, ABORTED, FINISHED, NEW } from "../consts.js";
+import { ALL, ABORTED, FINISHED, NEW } from "../../consts.js";
 
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
@@ -32,7 +32,7 @@ const FilterBar = ({ currentFilter, updateFilter }) => {
         <Menu.Item key={index}>
           <a 
             className={filterItemClass(filterName)} 
-            href={void(0)} 
+            href="/#" 
             onClick={() => handleChangeFilter(filterName)}>
             {t(filterName)}
           </a>
@@ -51,7 +51,7 @@ const FilterBar = ({ currentFilter, updateFilter }) => {
     <div className="filter-bar">
       <span className="filter-label">{t("tasksToDisplay")}:</span>
       <Dropdown overlay={menu} trigger={['click']}>
-        <a className="ant-dropdown-link filters-dropdown" href={void(0)}  onClick={e => e.preventDefault()}>
+        <a className="ant-dropdown-link filters-dropdown" href="/#"  onClick={e => e.preventDefault()}>
           {t(currentFilter)}
           <DownOutlined />
         </a>

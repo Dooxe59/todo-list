@@ -179,7 +179,7 @@ describe("Todo list app", () => {
   });
 
 
-  it("Abort new first todo (respnsive)", () => {
+  it("Abort new first todo (responsive)", () => {
     const inputValue = "Task added by Cypress :)";
     cy.viewport(550, 750);
     cy.get(".add-todo-item-input")

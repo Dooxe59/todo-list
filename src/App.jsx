@@ -6,8 +6,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from "./Home/Home";
-import Administration from "./Administration/Administration";
+import Home from "./pages/home/Home";
+import Administration from "./pages/administration/Administration";
 import {ToolOutlined} from '@ant-design/icons';
 
 

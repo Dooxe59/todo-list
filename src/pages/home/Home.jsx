@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
-import AddItem from "../AddTodoItem/AddTodoItem";
-import TodoList from "../TodoList/TodoList";
-import { createGuid } from "../utils.js";
-import { ABORTED, FINISHED, NEW } from "../consts.js";
+import AddItem from "../../components/addTodoItem/AddTodoItem";
+import TodoList from "../../components/todoList/TodoList";
+import { createGuid } from "../../utils.js";
+import { ABORTED, FINISHED, NEW } from "../../consts.js";
 
 import "./home.scss";
 
@@ -28,9 +28,8 @@ const HomePage = () => {
         todoListItemsTemp[itemIndex].status = action.newStatus;
         return todoListItemsTemp;
       }
-      case 'clearTodos': {
+      case 'clearTodos': 
         return [];
-      };
       default:
         throw new Error(`Action ${action.type} not exist.`)
     }
