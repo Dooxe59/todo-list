@@ -12,8 +12,11 @@
       "administration": "Administration",
       "appTitle": "My todo task",
       "changeLanguage": "Set language to french",
+      "currentLang": "Currently the language of the application is {{lang}}",
       "emptyList": "Empty list",
+      "english": "English",
       "finish": "Finish",
+      "french": "French",
       "tasksToDisplay": "Tasks to display"
     }
   },
@@ -30,8 +33,11 @@
       "administration": "Administration",
       "appTitle": "Ma liste de tâches",
       "changeLanguage": "Passer en anglais",
+      "currentLang": "Actuellement la langue de l'application est en {{lang}}",
       "emptyList": "La liste est vide",
+      "english": "Anglais",
       "finish": "Terminer",
+      "french": "Français",
       "tasksToDisplay": "Tâches à afficher"
     }
   }
