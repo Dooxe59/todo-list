@@ -101,6 +101,8 @@ describe("Todo list app", () => {
   });
 
   it("Display default finished todo list", () => {
+    cy.get(".filters-dropdown")
+      .click();
     cy.get(".finished-filter-element")
       .click();
     cy.get(".todo-item")
@@ -108,6 +110,8 @@ describe("Todo list app", () => {
   });
 
   it("Display default new todo list", () => {
+    cy.get(".filters-dropdown")
+      .click();
     cy.get(".new-filter-element")
       .click();
     cy.get(".todo-item")
@@ -115,6 +119,8 @@ describe("Todo list app", () => {
   });
 
   it("Display default aborted todo list", () => {
+    cy.get(".filters-dropdown")
+      .click();
     cy.get(".aborted-filter-element")
       .click();
     cy.get(".todo-item")
@@ -130,6 +136,8 @@ describe("Todo list app", () => {
       .first()
       .find(".button-red")
       .click();
+    cy.get(".filters-dropdown")
+      .click();
     cy.get(".aborted-filter-element")
       .click();
     cy.get(".todo-item")
@@ -141,6 +149,8 @@ describe("Todo list app", () => {
     cy.get(".add-todo-item-input")
       .type(inputValue)
       .type("{enter}");
+    cy.get(".filters-dropdown")
+      .click();
     cy.get(".new-filter-element")
       .click();
     cy.get(".todo-item")
@@ -155,6 +165,8 @@ describe("Todo list app", () => {
     cy.get(".new-todo-item")
       .first()
       .find(".button-green")
+      .click();
+    cy.get(".filters-dropdown")
       .click();
     cy.get(".finished-filter-element")
       .click();

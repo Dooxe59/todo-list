@@ -5,25 +5,7 @@
   align-items: center;
   border-bottom: 1px solid lightgray;
 
-  .filter-element {
-    color: darkslategray;
-    margin: 0 10px;
-    border-bottom: 2px solid transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-
-    &:hover {
-      cursor: pointer;
-      border-bottom: 2px solid darkblue;
-      color: darkblue;
-      font-style: italic;
-    }
-
-    &.active-filter {
-      color: darkblue;
-      border-bottom: 2px solid darkblue;
-    }
+  .filter-label {
+    margin-right: 2px;
   }
 }
