@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./button.scss";
 
-const Button = ({ label, onClick, isDisabled = false, theme = "default", className, children }) => {
+const Button = ({ label, onClick, isDisabled = false, theme = "default", className = "", children }) => {
   return (
     <button
       className={`button button-${theme} ${className}`}

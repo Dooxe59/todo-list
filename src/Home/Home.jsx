@@ -28,6 +28,9 @@ const HomePage = () => {
         todoListItemsTemp[itemIndex].status = action.newStatus;
         return todoListItemsTemp;
       }
+      case 'clearTodos': {
+        return [];
+      };
       default:
         throw new Error(`Action ${action.type} not exist.`)
     }
