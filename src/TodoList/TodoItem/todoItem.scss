@@ -1,7 +1,8 @@
 .todo-item {
-  height: 30px;
+  height: 60px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 10px;
   background-color: white;
   border-radius: 4px;
@@ -23,38 +24,43 @@
 
   .todo-item-status {
     height: 20px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 5px;
-  }
 
-  .finish-todo-item-button {
-    margin: 0 10px;
-  }
-
-  .finish-todo-item-button,
-  .abort-todo-item-button {
-    height: 20px;
-
-    .button-with-label {
+    .todo-action-buttons {
+      flex: 1;
       display: flex;
-    }
+      justify-content: flex-end;
 
-    .button-with-icon {
-      display: none;
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    .finish-todo-item-button,
-    .abort-todo-item-button {
-      .button-with-label {
-        display: none;
+      .finish-todo-item-button {
+        margin: 0 10px;
       }
 
-      .button-with-icon {
-        display: flex;
+      .finish-todo-item-button,
+      .abort-todo-item-button {
+        height: 20px;
+
+        .button-with-label {
+          display: flex;
+        }
+
+        .button-with-icon {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 800px) {
+        .finish-todo-item-button,
+        .abort-todo-item-button {
+          .button-with-label {
+            display: none;
+          }
+
+          .button-with-icon {
+            display: flex;
+          }
+        }
       }
     }
   }

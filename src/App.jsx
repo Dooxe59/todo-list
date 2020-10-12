@@ -4,6 +4,7 @@ import moment from "moment";
 import AddItem from "./AddTodoItem/AddTodoItem";
 import TodoList from "./TodoList/TodoList";
 import Button from "./Button/Button";
+import TopBar from "./TopBar/TopBar";
 import { createGuid } from "./utils.js";
 import { ABORTED, FINISHED, NEW } from "./consts.js";
 
@@ -64,7 +65,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="application-name">{t("appTitle")}</div>
+      <TopBar></TopBar>
       <AddItem addNewTodoItem={(itemLabel) => dispatch({type: 'addTodo', itemLabel: itemLabel})}></AddItem>
       <hr className="separator" />
       <TodoList

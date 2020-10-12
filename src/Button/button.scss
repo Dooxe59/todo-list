@@ -1,6 +1,5 @@
 .button {
   border-radius: 4px;
-  color: white;
   font-weight: bold;
   width: 100%;
   height: 100%;
@@ -12,35 +11,39 @@
 
   &:not([disabled]) {
     &:hover {
-      filter: brightness(150%);
+      filter: brightness(110%);
       cursor: pointer;
     }
   }
 
   &:disabled {
     cursor: not-allowed;
-    background-color: gray;
-    border-color: #6e6e6e;
+    background-color: #cccccc;
+    border-color: #6d6d6d;
+    color: #6d6d6d;
   }
 
   &.button-default {
     &:not([disabled]) {
-      background-color: teal;
-      border-color: blue;
+      background-color: #80d6ff;
+      border-color: #0077c2;
+      color: #0077c2;
     }
   }
 
   &.button-green {
     &:not([disabled]) {
-      background-color: green;
-      border-color: darkgreen;
+      background-color: #98ee99;
+      border-color: #338a3e;
+      color: #338a3e;
     }
   }
 
   &.button-red {
     &:not([disabled]) {
-      background-color: red;
-      border-color: darkmagenta;
+      background-color: #ff867c;
+      border-color: #b61827;
+      color: #b61827;
     }
   }
 }

@@ -1,8 +1,6 @@
 .tag {
   border-radius: 4px;
-  color: white;
   font-weight: bold;
-  width: 100%;
   height: 100%;
   border-width: 1px;
   border-style: solid;
@@ -14,22 +12,26 @@
   justify-content: center;
 
   &.tag-default {
-    background-color: cornflowerblue;
-    border-color: dodgerblue;
+    background-color: #80d6ff;
+    border-color: #0077c2;
+    color: #0077c2;
   }
 
   &.tag-green {
-    background-color: green;
-    border-color: darkgreen;
+    background-color: #98ee99;
+    border-color: #338a3e;
+    color: #338a3e;
   }
 
   &.tag-pink {
-    background-color: plum;
-    border-color: pink;
+    background-color: #ffb2ff;
+    border-color: #b64fc8;
+    color: #b64fc8;
   }
 
   &.tag-orange {
-    background-color: orange;
-    border-color: orangered;
+    background-color: #ff9f70;
+    border-color: #c33c17;
+    color: #c33c17;
   }
 }

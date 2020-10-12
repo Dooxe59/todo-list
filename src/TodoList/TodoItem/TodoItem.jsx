@@ -27,40 +27,40 @@ const TodoItem = ({ item, updateTodoItemStatus }) => {
   const renderTodoButton = () => {
     if(item.status !== NEW) return;
     return (
-      <>
-      <div className="finish-todo-item-button">
-        <Button
-          className="button-with-label"
-          theme="green"
-          label={t("finish")}
-          onClick={() => updateTodoItemStatus(FINISHED)}
-        >
-        </Button>
-        <Button
-          className="button-with-icon"
-          theme="green"
-          onClick={() => updateTodoItemStatus(FINISHED)}
-        >
-          <CheckCircleOutlined />
-        </Button>
-      </div>
-      <div className="abort-todo-item-button">
-        <Button
-          className="button-with-label"
-          theme="red"
-          label={t("abort")}
-          onClick={() => updateTodoItemStatus(ABORTED)}
-        >
-        </Button>
-        <Button
-          className="button-with-icon"
-          theme="red"
-          onClick={() => updateTodoItemStatus(ABORTED)}
-        >
-          <CloseCircleOutlined />
-        </Button>
-      </div>
-      </>
+      <div className="todo-action-buttons">
+        <div className="finish-todo-item-button">
+          <Button
+            className="button-with-label"
+            theme="green"
+            label={t("finish")}
+            onClick={() => updateTodoItemStatus(FINISHED)}
+          >
+          </Button>
+          <Button
+            className="button-with-icon"
+            theme="green"
+            onClick={() => updateTodoItemStatus(FINISHED)}
+          >
+            <CheckCircleOutlined />
+          </Button>
+        </div>
+        <div className="abort-todo-item-button">
+          <Button
+            className="button-with-label"
+            theme="red"
+            label={t("abort")}
+            onClick={() => updateTodoItemStatus(ABORTED)}
+          >
+          </Button>
+          <Button
+            className="button-with-icon"
+            theme="red"
+            onClick={() => updateTodoItemStatus(ABORTED)}
+          >
+            <CloseCircleOutlined />
+          </Button>
+        </div>
+      </div>  
     )
   };
 
@@ -79,6 +79,7 @@ const TodoItem = ({ item, updateTodoItemStatus }) => {
     <div className={`todo-item ${todoItemClass()}`}>
       <div className="todo-item-status">
         <Tag label={t(item.status)} theme={getItemStatusTag()}></Tag>
+        {renderTodoButton()}
       </div>
       <div className="todo-item-value">
         <span className="todo-item-label truncated" title={item.label}>
@@ -88,7 +89,6 @@ const TodoItem = ({ item, updateTodoItemStatus }) => {
           {todoItemDate()}
         </span>
       </div>
-      {renderTodoButton()}
     </div>
   );
 };
