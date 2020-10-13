@@ -14,9 +14,7 @@ const AddTodoForm = ({ addItem }) => {
     setNewTodoItemValue(event.target.value);
   };
 
-  const isValidNewItem = () => {
-    return newTodoItemValue?.trim()?.length > 0;
-  };
+  const isValidNewItem = newTodoItemValue?.trim()?.length > 0;
 
   const setFocusOnInput = () => {
     inputRef.current.focus();
@@ -30,7 +28,7 @@ const AddTodoForm = ({ addItem }) => {
   };
 
   const validateAndAddNewTodoItem = () => {
-    if (isValidNewItem()) {
+    if (isValidNewItem) {
       addItem({itemLabel: newTodoItemValue.trim()});
       clearInputText();
       setFocusOnInput();
@@ -64,7 +62,7 @@ const AddTodoForm = ({ addItem }) => {
         <Button
           theme="green"
           label={t("add")}
-          isDisabled={!isValidNewItem()}
+          isDisabled={!isValidNewItem}
           onClick={validateAndAddNewTodoItem}
         ></Button>
       </div>

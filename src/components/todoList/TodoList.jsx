@@ -16,14 +16,12 @@ const TodoList = ({ todoListItems, updateTodoItemStatus }) => {
     setFilter(filterName);
   };
 
-  const filteredTodoListItems = () => {
-    if(filter === ALL) return todoListItems;
-    return todoListItems.filter(item => item.status === filter);
-  };
+  const filteredTodoListItems = filter === ALL ? 
+    todoListItems : todoListItems.filter(item => item.status === filter);
 
   const renderTodoList = () => {
-    if(!filteredTodoListItems().length) return (<div className="empty-list">{t("emptyList")}</div>);
-    return filteredTodoListItems().map((item, index) => {
+    if(!filteredTodoListItems.length) return (<div className="empty-list">{t("emptyList")}</div>);
+    return filteredTodoListItems.map((item, index) => {
       return (
         <TodoItem
           item={item}
