@@ -1,6 +1,5 @@
 ## Todo list:
 
 - TU
-- e2e test not by class + split
+- e2e test without classes + split into multiple files
 - Git: before deploy, lauche e2e tests
-- Add e2e test (delete all todos)

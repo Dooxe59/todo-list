@@ -178,6 +178,22 @@ describe("Todo list app", () => {
       .should("have.length", 2);
   });
 
+  it("Clear all todos", () => {
+    cy.get(".todo-item")
+      .should("have.length", 3);
+    cy.get(".administration-page-button-label")
+      .click();
+    cy.get(".clear-todos-button")
+      .first()
+      .click();
+    cy.get(".ant-btn-sm")
+      .last()
+      .click();
+    cy.get(".application-name")
+      .click();
+    cy.get(".todo-item")
+      .should("have.length", 0);
+  });
 
   it("Abort new first todo (responsive)", () => {
     const inputValue = "Task added by Cypress :)";
@@ -211,5 +227,23 @@ describe("Todo list app", () => {
       .click();
     cy.get(".finished-todo-item")
       .should("have.length", 2);
+  });
+
+  it("Clear all todos (responsive)", () => {
+    cy.viewport(550, 750);
+    cy.get(".todo-item")
+      .should("have.length", 3);
+    cy.get(".administration-page-button-icon")
+      .click();
+    cy.get(".clear-todos-button")
+      .first()
+      .click();
+    cy.get(".ant-btn-sm")
+      .last()
+      .click();
+    cy.get(".application-name")
+      .click();
+    cy.get(".todo-item")
+      .should("have.length", 0);
   });
 });

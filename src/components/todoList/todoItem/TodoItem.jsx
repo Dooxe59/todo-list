@@ -2,11 +2,10 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { ABORTED, FINISHED, NEW } from "../../../consts.js";
+import {CheckCircleOutlined, CloseCircleOutlined} from '@ant-design/icons';
 import Button from "../../ui/Button/Button";
 import Tag from "../../ui/Tag/Tag";
-import { ABORTED, FINISHED, NEW } from "../../../consts.js";
-
-import {CheckCircleOutlined, CloseCircleOutlined} from '@ant-design/icons';
 
 import "./todoItem.scss";
 

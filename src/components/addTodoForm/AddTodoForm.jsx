@@ -1,18 +1,11 @@
 import React, { useState, useRef } from "react";
-import { useCallback } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
 import Button from "../ui/Button/Button";
-import { addTodoItem } from "../../store/todosActions";
 
-import "./addTodoItem.scss";
+import "./addTodoForm.scss";
 
-const AddItem = () => {
-  const dispatch = useDispatch();
-  const addItem = useCallback((todo) => {
-    dispatch(addTodoItem(todo));
-  }, []);
-
+const AddTodoForm = ({ addItem }) => {
   const { t } = useTranslation();
   const [newTodoItemValue, setNewTodoItemValue] = useState("");
   const inputRef = useRef(null);
@@ -79,4 +72,8 @@ const AddItem = () => {
   );
 };
 
-export default AddItem;
+AddTodoForm.propTypes = {
+  addItem: PropTypes.func.isRequired,
+};
+
+export default AddTodoForm;

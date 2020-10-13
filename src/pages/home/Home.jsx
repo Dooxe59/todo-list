@@ -1,23 +1,30 @@
 import React from "react";
-import AddTodoItem from "../../components/addTodoItem/AddTodoItem";
-import { TodoListStore } from "../../components/todoList/TodoListStore";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo, changeTodoStatus } from "../../store/todosActions";
+import { todosSelector } from "../../store/todosSelectors";
+import AddTodoItem from "../../components/addTodoForm/AddTodoForm";
 
 import "./home.scss";
+import TodoList from "../../components/todoList/TodoList";
 
-const HomePage = () => {
-  // const [todoListItems, dispatch] = useStore();
+const Home = () => {
+  const todoListItems = useSelector(todosSelector);
+  const dispatch = useDispatch();
+  const updateTodoItemStatus = useCallback(todo => {
+    dispatch(changeTodoStatus(todo));
+  }, []);
+  const addItem = useCallback((todo) => {
+    dispatch(addTodo(todo));
+  }, []);
 
   return (
     <div className="home">
-    <AddTodoItem></AddTodoItem>
+      <AddTodoItem addItem={addItem}></AddTodoItem>
       <hr className="separator" />
-      {/* <TodoList
-        todoListItems={todoListItems}
-        updateTodoItemStatus={(itemId, newStatus) => dispatch({type: 'CHANGE_STATUS', itemId: itemId, newStatus: newStatus})}
-      ></TodoList> */}
-      <TodoListStore></TodoListStore>
-      </div>
+      <TodoList todoListItems={todoListItems} updateTodoItemStatus={updateTodoItemStatus}></TodoList>
+    </div>
   );
 };
 
-export default HomePage;
+export default Home;

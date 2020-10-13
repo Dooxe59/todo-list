@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { ALL, ABORTED, FINISHED, NEW } from "../../consts.js";
-
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
