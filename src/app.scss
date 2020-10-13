@@ -20,6 +20,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #1976d2;
 
       &:hover {
         text-decoration: underline;
@@ -64,10 +65,6 @@
       .administration-page-button-icon {
         display: flex;
       }
-    }
-
-    .is-active {
-      color: #1976d2;
     }
   }
 }

@@ -8,6 +8,7 @@ import { ALL } from "../../consts.js";
 import "./todoList.scss";
 
 const TodoList = ({ todoListItems, updateTodoItemStatus }) => {
+
   const { t } = useTranslation();
   const [filter, setFilter] = useState(ALL);
 
@@ -27,7 +28,7 @@ const TodoList = ({ todoListItems, updateTodoItemStatus }) => {
         <TodoItem
           item={item}
           key={item.id}
-          updateTodoItemStatus={(newStatus) => updateTodoItemStatus(item.id, newStatus)}
+          updateTodoItemStatus={(newStatus) => updateTodoItemStatus({itemId: item.id, newStatus: newStatus})}
         ></TodoItem>
       );
     });

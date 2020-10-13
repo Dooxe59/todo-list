@@ -1,12 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Button from "../../components/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 
+import { clearTodos } from "../../store/todosActions";
+
 import "./administration.scss";
 import { Popconfirm, message } from 'antd';
+import { useDispatch } from 'react-redux';
 
 const Administration = () => {
+  const dispatch = useDispatch();
+  const clearAllTodos = useCallback(() => {
+    dispatch(clearTodos());
+  }, []);
+
   const LOCAL_STORAGE_LANG_KEY = "todoListAppCulture";
 
   const { t, i18n } = useTranslation();
@@ -35,7 +43,7 @@ const Administration = () => {
   };
 
   const confirm = (e) => {
-    alert('WIP: TODO: clear todos');
+    clearAllTodos();
     message.success(t("allTasksCleared"));
   }
   

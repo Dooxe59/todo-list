@@ -1,11 +1,18 @@
 import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 import Button from "../ui/Button/Button";
+import { addTodoItem } from "../../store/todosActions";
 
 import "./addTodoItem.scss";
 
-const AddItem = ({ addNewTodoItem }) => {
+const AddItem = () => {
+  const dispatch = useDispatch();
+  const addItem = useCallback((todo) => {
+    dispatch(addTodoItem(todo));
+  }, []);
+
   const { t } = useTranslation();
   const [newTodoItemValue, setNewTodoItemValue] = useState("");
   const inputRef = useRef(null);
@@ -31,7 +38,7 @@ const AddItem = ({ addNewTodoItem }) => {
 
   const validateAndAddNewTodoItem = () => {
     if (isValidNewItem()) {
-      addNewTodoItem(newTodoItemValue.trim());
+      addItem({itemLabel: newTodoItemValue.trim()});
       clearInputText();
       setFocusOnInput();
     }
@@ -70,10 +77,6 @@ const AddItem = ({ addNewTodoItem }) => {
       </div>
     </div>
   );
-};
-
-AddItem.propTypes = {
-  addNewTodoItem: PropTypes.func.isRequired,
 };
 
 export default AddItem;
