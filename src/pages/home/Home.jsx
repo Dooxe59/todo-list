@@ -13,10 +13,10 @@ const Home = () => {
   const dispatch = useDispatch();
   const updateTodoItemStatus = useCallback(todo => {
     dispatch(changeTodoStatus(todo));
-  }, []);
+  }, [dispatch]);
   const addItem = useCallback((todo) => {
     dispatch(addTodo(todo));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="home">

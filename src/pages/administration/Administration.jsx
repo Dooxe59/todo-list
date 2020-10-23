@@ -12,7 +12,7 @@ const Administration = () => {
   const dispatch = useDispatch();
   const clearAllTodos = useCallback(() => {
     dispatch(clearTodos());
-  }, []);
+  }, [dispatch]);
 
   const LOCAL_STORAGE_LANG_KEY = "todoListAppCulture";
 
